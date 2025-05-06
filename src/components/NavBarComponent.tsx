@@ -8,7 +8,7 @@ export default function NavBarComponet(){
     useEffect(() => {
         function handleScroll() {
             if(window.scrollY > 700){
-                console.log('aqui empiezan los productos')
+                console.log('Aqui empiezan los Productos')
             }
         }
         window.addEventListener('scroll', handleScroll);
