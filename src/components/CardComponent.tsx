@@ -5,15 +5,13 @@ type Props = {
 };
 
 
-export default function CartComponent({product}: Props) {
+export default function CardComponent({product}: Props) {
     return (
-
-
         <>
-        <div className="w-full h-full bg-white flex flex-col justify-between border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 text-center">
+        <div className="scroll-smooth md:scroll-auto w-full h-full bg-white flex flex-col justify-between border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 text-center">
         <a href="#">
         <img className="rounded-t-lg" src={`/imgProductos/${product.image}.png`} alt="imagen producto" />
-    </a>
+        </a>
     <div className="p-5">
         <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.name}</h5>
