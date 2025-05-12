@@ -3,3 +3,8 @@
 .header{
     filter: brightness(40%);
 }
+
+/*Para que el salto de pagina no sea tan brusco*/
+html {
+  scroll-behavior: smooth;
+}
