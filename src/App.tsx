@@ -1,19 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import NavBarComponet from './components/NavBarComponent'
 import './index.css'
 import { db } from './db/db'
 import CardComponent from './components/CardComponent'
 import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
+import { cartReducer, initialState } from './reducers/Cart-reducer'
 
 function App() {
 
   const [data] = useState(db);
+  const [state, dispatch] = useReducer(cartReducer, initialState)
+
+  useEffect(() => {
+    localStorage.setItem('cart',  JSON.stringify(state.cart))
+  }, [state.cart])
 
   return (
   <>
    <div className="scroll-smooth">
-    <NavBarComponet/>
+    <NavBarComponet
+    cart = {state.cart}
+    dispatch = {dispatch}
+    />
 
     {/*para que devuelva al inicio*/}
     <div id="inicio" className="pt-24"></div>
@@ -29,6 +38,7 @@ function App() {
             <CardComponent
               key={product.id}
               product={product}
+              dispatch={dispatch}
             />
           )
         })}

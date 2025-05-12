@@ -3,6 +3,10 @@ export type Producto = {
     name: string;
     image: string;
     details: string;
-    price: string;
+    price: number;
     color:string
+}
+
+export interface CartItem extends Producto {
+    quantity: number;
 }

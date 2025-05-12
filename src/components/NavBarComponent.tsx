@@ -1,9 +1,20 @@
-import { useState } from "react"
+import { ActionDispatch, useMemo, useState } from "react"
+import { CartItem } from "../types/type";
+import { CartActions } from "../reducers/Cart-reducer";
 
-export default function NavBarComponet(){
+type HeaderProps = {
+    cart: CartItem[];
+    dispatch: ActionDispatch<[CartActions]>
+}
+
+export default function NavBarComponet({cart, dispatch}: HeaderProps) {
 
     /*para añadir el menu hamburguesa en dispositivos pequeños*/
     const[menuOpen, setMenuOpen] = useState(false);
+    const [cartOpen, setCartOpen] = useState(false);
+    const isEmpty = useMemo(() => cart.length === 0, [cart])
+    const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart])
+    const totalItems = useMemo(() => cart.reduce((total, item) => total + item.quantity, 0), [cart]); // Total de productos
 
     return (
         <>
@@ -25,7 +36,99 @@ export default function NavBarComponet(){
                     <li className="md:flex md:items-center h-12 hover:font-bold"><a className="hover:underline" href="#inicio">Inicio</a></li>    
                     <li className="md:flex md:items-center h-12 hover:font-bold"><a id="#productos" className="hover:underline" href="#productos">Productos</a></li>    
                     <input className="border rounded-2xl p-2 text-center hover:font-bold" type="text" placeholder=" Buscar Producto"/>
-                    <li><a href="#cart"><img className="h-15 " src="/img/cart.svg" alt="imagen navbar"/></a></li>
+                    <li>
+                        {/* Ícono del carrito con contador */}
+                        <div className="relative">
+                            <button onClick={() => setCartOpen(!cartOpen)} className="relative">
+                                <img className="h-8 w-8" src="/img/cart.svg" alt="imagen carrito" />
+                                {totalItems > 0 && (
+                                    <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-2">
+                                        {totalItems}
+                                    </span>
+                                )}
+                            </button>
+
+                            {/* Cuadro desplegable del carrito */}
+                            {cartOpen && (
+                                <div className="absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-120 p-4 z-50">
+                                    <h2 className="text-lg font-bold mb-4">Carrito</h2>
+                                    {isEmpty ? (
+                                        <p className="text-center">El carrito está vacío</p>
+                                    ) : (
+                                        <>
+                                            <table className="w-full table-auto">
+                                                <thead>
+                                                    <tr>
+                                                        <th className="px-3 py-2 text-center">Imagen</th>
+                                                        <th className="px-3 py-2 text-center">Nombre</th>
+                                                        <th className="px-3 py-2 text-center">Precio</th>
+                                                        <th className="px-3 py-2 text-center">Cantidad</th>
+                                                        <th className="px-3 py-2 text-center">Quitar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {cart.map((item) => (
+                                                        <tr key={item.id} className="text-center">
+                                                            <td>
+                                                                <img
+                                                                    className="h-12 w-12 mx-auto"
+                                                                    src={`/imgProductos/${item.image}.png`}
+                                                                    alt={item.name}
+                                                                />
+                                                            </td>
+                                                            <td>{item.name}</td>
+                                                            <td>${item.price}</td>
+                                                            <td className="flex items-center justify-center gap-2">
+                                                                <button
+                                                                    className="px-2 py-1 bg-gray-200 rounded"
+                                                                    onClick={() =>
+                                                                        dispatch({ type: "decrease-quantity", payload: { id: item.id } })
+                                                                    }
+                                                                >
+                                                                    -
+                                                                </button>
+                                                                {item.quantity} uds
+                                                                <button
+                                                                    className="px-2 py-1 bg-gray-200 rounded"
+                                                                    onClick={() =>
+                                                                        dispatch({ type: "increase-quantity", payload: { id: item.id } })
+                                                                    }
+                                                                >
+                                                                    +
+                                                                </button>
+                                                            </td>
+                                                            <td>
+                                                                <button
+                                                                    onClick={() =>
+                                                                        dispatch({ type: "remove-from-cart", payload: { id: item.id } })
+                                                                    }
+                                                                >
+                                                                    <img
+                                                                        className="h-6 w-6 mx-auto"
+                                                                        src="/img/basura.png"
+                                                                        alt="Eliminar"
+                                                                    />
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                            <p className="text-right mt-2">
+                                                Total: <span className="font-bold">${cartTotal}</span>
+                                            </p>
+                                            <button
+                                                className="w-full bg-black text-white py-2 mt-3 rounded"
+                                                onClick={() => dispatch({ type: "clear-cart" })}
+                                            >
+                                                Vaciar Carrito
+                                            </button>
+                                        </>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </>
