@@ -40,7 +40,7 @@ export default function NavBarComponet({cart, dispatch}: HeaderProps) {
                         {/* Ícono del carrito con contador */}
                         <div className="relative">
                             <button onClick={() => setCartOpen(!cartOpen)} className="relative">
-                                <img className="h-8 w-8" src="/img/cart.svg" alt="imagen carrito" />
+                                <img className="h-8 w-8 hover:cursor-pointer" src="/img/cart.svg" alt="imagen carrito" />
                                 {totalItems > 0 && (
                                     <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-2">
                                         {totalItems}
@@ -80,7 +80,7 @@ export default function NavBarComponet({cart, dispatch}: HeaderProps) {
                                                             <td>${item.price}</td>
                                                             <td className="flex items-center justify-center gap-2">
                                                                 <button
-                                                                    className="px-2 py-1 bg-gray-200 rounded"
+                                                                    className="px-2 py-1 bg-gray-200 rounded hover:cursor-pointer"
                                                                     onClick={() =>
                                                                         dispatch({ type: "decrease-quantity", payload: { id: item.id } })
                                                                     }
@@ -89,7 +89,7 @@ export default function NavBarComponet({cart, dispatch}: HeaderProps) {
                                                                 </button>
                                                                 {item.quantity} uds
                                                                 <button
-                                                                    className="px-2 py-1 bg-gray-200 rounded"
+                                                                    className="px-2 py-1 bg-gray-200 rounded hover:cursor-pointer"
                                                                     onClick={() =>
                                                                         dispatch({ type: "increase-quantity", payload: { id: item.id } })
                                                                     }
@@ -104,7 +104,7 @@ export default function NavBarComponet({cart, dispatch}: HeaderProps) {
                                                                     }
                                                                 >
                                                                     <img
-                                                                        className="h-6 w-6 mx-auto"
+                                                                        className="h-6 w-6 mx-auto hover:cursor-pointer"
                                                                         src="/img/basura.png"
                                                                         alt="Eliminar"
                                                                     />
@@ -118,7 +118,7 @@ export default function NavBarComponet({cart, dispatch}: HeaderProps) {
                                                 Total: <span className="font-bold">${cartTotal}</span>
                                             </p>
                                             <button
-                                                className="w-full bg-black text-white py-2 mt-3 rounded"
+                                                className="w-full bg-black text-white py-2 mt-3 rounded cursor-pointer"
                                                 onClick={() => dispatch({ type: "clear-cart" })}
                                             >
                                                 Vaciar Carrito

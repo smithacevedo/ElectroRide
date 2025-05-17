@@ -4,23 +4,23 @@ export default function HeaderComponent(){
 
 
     const images = [
-    "/img/header.png",
+    "/img/header.jpg",
     "/img/header2.png",
-    "/img/header3.png"
+    "/img/header3.avif"
     ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+
+  /*para que las imagenes cambien cada 3 segundos*/
   useEffect(() => {
     const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
 
+
     return () => clearInterval(interval); 
-    }, []);useEffect(() => {
-    
-    },
-    [])
+    }, []);
 
     return (
 
