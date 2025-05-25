@@ -40,6 +40,7 @@ export default function ProductComponent() {
             <p className="text-lg text-gray-700 mb-4">{product.details}</p>
             <p className="text-2xl font-bold text-black mb-6">{product.color}</p>
             <p className="text-2xl font-bold text-green-600 mb-6">${product.price}</p>
+            
 
             <button
               onClick={() => dispatch({ type: "add-to-cart", payload: { item: product } })}

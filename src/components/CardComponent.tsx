@@ -21,6 +21,25 @@ export default function CardComponent({ product, dispatch }: Props) {
             <div className="p-5">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.name}</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.details}</p>
+                <div className="flex flex-col gap-2">
+                <p className="mb-3  dark:text-gray-400 text-[22px] text-green-400 font-bold"><span className="text-black">Precio:</span> $ {product.price}</p>
+
+                <div className="flex flex-row justify-center items-center gap-2 mb-3">
+                    <div
+                        className="w-6 h-6 rounded-full border border-gray-400"
+                        style={{
+                        backgroundColor: product.color.toLowerCase() === 'blanca' ? 'white' :
+                                        product.color.toLowerCase() === 'gris' ? 'gray' :
+                                        product.color.toLowerCase() === 'negro' ? 'black' :
+                                        product.color.toLowerCase() === 'rojo' ? 'red' :
+                                        product.color.toLowerCase() === 'verde' ? 'green' :
+                                        product.color.toLowerCase() === 'azul' ? 'blue' :
+                                        product.color.toLowerCase(), 
+                        }}
+                        title={product.color}
+                    ></div>
+                    </div>
+                </div>
                 <div className="flex flex-row justify-around">
                     <button
                         onClick={handleViewProduct}
