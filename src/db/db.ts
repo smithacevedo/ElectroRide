@@ -31,7 +31,7 @@ export const db: Producto[] = [
         image: "producto_4",
         details: "Diseñada para terrenos difíciles. Suspensión delantera y autonomía de 50 km.",
         price: 920,
-        color: "Negro con verde"
+        color: "Verde"
       },
       {
         id: 5,
@@ -39,7 +39,7 @@ export const db: Producto[] = [
         image: "producto_5",
         details: "Velocidad de hasta 40 km/h, suspensión doble y frenos de disco. Para usuarios exigentes.",
         price: 620,
-        color: "Gris oscuro"
+        color: "Gris"
       },
       {
         id: 6,
@@ -63,6 +63,6 @@ export const db: Producto[] = [
         image: "producto_8",
         details: "Estilo vintage con tecnología moderna. Perfecta para paseos en la ciudad.",
         price: 830,
-        color: "Negro mate"
+        color: "Negro"
       }
 ]
