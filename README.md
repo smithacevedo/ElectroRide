@@ -46,10 +46,11 @@ Los usuarios pueden refinar los productos por:
 
 ## 📁 Estructura del Proyecto
 
+## 📁 Estructura del Proyecto
+
+```plaintext
 ELECTRORIDE/
-│
 ├── node_modules/
-│
 ├── public/
 │   ├── img/
 │   │   ├── basura.png
@@ -59,7 +60,6 @@ ELECTRORIDE/
 │   │   ├── header2.png
 │   │   ├── header3.avif
 │   │   └── imagen-navbar.png
-│   │
 │   ├── imgProductos/
 │   │   ├── producto_1.png
 │   │   ├── producto_2.png
@@ -69,9 +69,7 @@ ELECTRORIDE/
 │   │   ├── producto_6.png
 │   │   ├── producto_7.png
 │   │   └── producto_8.png
-│   │
 │   └── vite.svg
-│
 ├── src/
 │   ├── components/
 │   │   ├── CardComponent.tsx
@@ -79,27 +77,22 @@ ELECTRORIDE/
 │   │   ├── HeaderComponent.tsx
 │   │   ├── NavBarComponent.tsx
 │   │   └── ProductComponent.tsx
-│   │
 │   ├── db/
 │   │   └── db.ts
-│   │
 │   ├── reducers/
 │   │   └── Cart-reducer.ts
-│   │
 │   ├── types/
 │   │   └── type.ts
-│   │
 │   ├── App.tsx
 │   ├── index.css
 │   ├── main.tsx
 │   └── vite-env.d.ts
-│
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
 ├── package.json
 └── tsconfig.json
-
+```
 
 ## 📦 Datos Simulados
 
