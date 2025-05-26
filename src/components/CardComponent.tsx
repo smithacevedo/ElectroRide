@@ -37,6 +37,8 @@ export default function CardComponent({ product, dispatch }: Props) {
                                         product.color.toLowerCase() === 'rojo' ? 'red' :
                                         product.color.toLowerCase() === 'verde' ? 'green' :
                                         product.color.toLowerCase() === 'azul' ? 'blue' :
+                                        product.color.toLowerCase() === 'naranja' ? 'orange' :
+                                        product.color.toLowerCase() === 'amarillo' ? 'yellow' :
                                         product.color.toLowerCase(), 
                         }}
                         title={product.color}

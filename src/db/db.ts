@@ -111,7 +111,7 @@ export const db: Producto[] = [
         image: "producto_14",
         details: "Ideal para desplazamientos diarios en la ciudad. Ligera y eficiente.",
         price: 620,
-        color: "Gris Oscuro"
+        color: "Gris"
       },
       {
         id: 15,
