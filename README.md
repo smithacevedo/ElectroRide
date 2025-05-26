@@ -1,54 +1,112 @@
-# React + TypeScript + Vite
+# 🛵 ElectroRide - Ecommerce de Scooters y Bicicletas Eléctricas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ElectroRide** es una tienda en línea desarrollada con **React**, **TypeScript** y **Tailwind CSS**, enfocada en la venta de scooters y bicicletas eléctricas. Ofrece una experiencia moderna con scroll infinito, filtros dinámicos y un carrito de compras persistente.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidad Principal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Visualización de productos eléctricos (scooters y bicicletas).
+- Filtro por **color** y **rango de precio**.
+- **Scroll infinito** para cargar más productos automáticamente.
+- Carrito de compras con estado global manejado por `useReducer`.
+- Persistencia del carrito en `localStorage`.
 
-## Expanding the ESLint configuration
+## 🧩 Tecnologías Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ⚛️ React
+- 🟦 TypeScript
+- 💨 Tailwind CSS
+- 🧠 React Hooks (`useState`, `useEffect`, `useReducer`, `useRef`)
+- 🗂️ localStorage
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🎛️ Filtros
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Los usuarios pueden refinar los productos por:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Color**: Blanca, Negra, Gris, Roja, Verde, Azul.
+- **Rango de precio**:
+  - $0 - $499
+  - $500 - $699
+  - $700 - $1000+
+  - Todos
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+> ℹ️ **Nota:** Cuando se activa cualquier filtro, el scroll infinito se desactiva para evitar la repetición de productos.
+
+## 🔄 Scroll Infinito
+
+- Implementado con `IntersectionObserver`.
+- Detecta cuando el usuario se acerca al final de la página.
+- Genera dinámicamente más productos (simulación).
+- Solo se activa cuando no hay filtros activos.
+
+## 🛒 Carrito de Compras
+
+- Controlado globalmente mediante `useReducer`.
+- Persistido con `localStorage` para mantener el estado entre sesiones.
+- Se actualiza automáticamente cada vez que el usuario agrega o modifica productos.
+
+## 📁 Estructura del Proyecto
+
+ELECTRORIDE/
+│
+├── node_modules/
+│
+├── public/
+│   ├── img/
+│   │   ├── basura.png
+│   │   ├── cart.svg
+│   │   ├── cart2.png
+│   │   ├── header.jpg
+│   │   ├── header2.png
+│   │   ├── header3.avif
+│   │   └── imagen-navbar.png
+│   │
+│   ├── imgProductos/
+│   │   ├── producto_1.png
+│   │   ├── producto_2.png
+│   │   ├── producto_3.png
+│   │   ├── producto_4.png
+│   │   ├── producto_5.png
+│   │   ├── producto_6.png
+│   │   ├── producto_7.png
+│   │   └── producto_8.png
+│   │
+│   └── vite.svg
+│
+├── src/
+│   ├── components/
+│   │   ├── CardComponent.tsx
+│   │   ├── FilterComponent.tsx
+│   │   ├── HeaderComponent.tsx
+│   │   ├── NavBarComponent.tsx
+│   │   └── ProductComponent.tsx
+│   │
+│   ├── db/
+│   │   └── db.ts
+│   │
+│   ├── reducers/
+│   │   └── Cart-reducer.ts
+│   │
+│   ├── types/
+│   │   └── type.ts
+│   │
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+│
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+└── tsconfig.json
+
+
+## 📦 Datos Simulados
+
+Todos los productos provienen de un archivo local (`db.ts`) que simula una base de datos. No se realiza ninguna conexión con backend o API externa.
+
+## 🔗 Repositorio
+
+👉 [Ver en GitHub](https://github.com/smithacevedo/ElectroRide.git)
+
+---
