@@ -1,6 +1,8 @@
 import { ActionDispatch, useMemo, useState } from "react"
 import { CartItem } from "../types/type";
 import { CartActions } from "../reducers/Cart-reducer";
+import { useNavigate } from "react-router-dom";
+
 
 type HeaderProps = {
     cart: CartItem[];
@@ -9,12 +11,21 @@ type HeaderProps = {
 
 export default function NavBarComponet({cart, dispatch}: HeaderProps) {
 
+
+    const navigate = useNavigate();  
+
+    const handleFinalizePurchase = () => {
+        navigate('/finalizar-compra');
+    }
+
+
     /*para añadir el menu hamburguesa en dispositivos pequeños*/
     const[menuOpen, setMenuOpen] = useState(false);
     const [cartOpen, setCartOpen] = useState(false);
     const isEmpty = useMemo(() => cart.length === 0, [cart])
     const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart])
     const totalItems = useMemo(() => cart.reduce((total, item) => total + item.quantity, 0), [cart]); // Total de productos
+
 
     return (
         <>
@@ -117,12 +128,11 @@ export default function NavBarComponet({cart, dispatch}: HeaderProps) {
                                             <p className="text-right mt-2">
                                                 Total: <span className="font-bold">${cartTotal}</span>
                                             </p>
+                                            <div className="flex flex-col items-center lg:flex-row gap-2 ">
                                             <button
-                                                className="w-full bg-black text-white py-2 mt-3 rounded cursor-pointer"
-                                                onClick={() => dispatch({ type: "clear-cart" })}
-                                            >
-                                                Vaciar Carrito
-                                            </button>
+                                                className="w-full bg-black text-white py-2 my-3 rounded cursor-pointer"onClick={() => dispatch({ type: "clear-cart" })}>Vaciar Carrito</button>
+                                            <button className="w-full bg-black text-white py-2 my-3 rounded cursor-pointer" onClick={handleFinalizePurchase}>Finalizar compra</button>
+                                            </div>
                                         </>
                                     )}
                                 </div>

@@ -64,5 +64,61 @@ export const db: Producto[] = [
         details: "Estilo vintage con tecnología moderna. Perfecta para paseos en la ciudad.",
         price: 830,
         color: "Negro"
+      },
+      {
+        id: 9,
+        name: "Bicicleta de Ruta SpeedPro",
+        image: "producto_9",
+        details: "Alta velocidad y rendimiento para ciclistas exigentes.",
+        price: 1050,
+        color: "Azul"
+      },
+      {
+        id: 10,
+        name: "Bicicleta Infantil MiniRider",
+        image: "producto_10",
+        details: "Segura y divertida para los más pequeños.",
+        price: 310,
+        color: "Amarillo"
+      },
+      {
+        id: 11,
+        name: "Bicicleta Híbrida CitySport",
+        image: "producto_11",
+        details: "Combinación perfecta de confort y versatilidad para ciudad y campo.",
+        price: 770,
+        color: "Verde"
+      },
+      {
+        id: 12,
+        name: "Bicicleta Eléctrica FoldX",
+        image: "producto_12",
+        details: "Plegable y compacta, ideal para combinar con transporte público.",
+        price: 890,
+        color: "Blanco"
+      },
+      {
+        id: 13,
+        name: "Bicicleta BMX Trickster",
+        image: "producto_13",
+        details: "Resistente y ágil para acrobacias y uso urbano.",
+        price: 540,
+        color: "Naranja"
+      },
+      {
+        id: 14,
+        name: "Bicicleta Urbana EcoMove",
+        image: "producto_14",
+        details: "Ideal para desplazamientos diarios en la ciudad. Ligera y eficiente.",
+        price: 620,
+        color: "Gris Oscuro"
+      },
+      {
+        id: 15,
+        name: "Bicicleta Montañera X-Trail",
+        image: "producto_15",
+        details: "Diseñada para terrenos difíciles y aventuras al aire libre.",
+        price: 950,
+        color: "Rojo"
       }
 ]

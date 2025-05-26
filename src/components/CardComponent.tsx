@@ -15,6 +15,9 @@ export default function CardComponent({ product, dispatch }: Props) {
         navigate(`/producto/${product.id}`)
     }
 
+    
+
+
     return (
         <div className="scroll-smooth md:scroll-auto w-full h-full bg-white flex flex-col justify-between border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 text-center">
             <img className="rounded-t-lg" src={`/imgProductos/${product.image}.png`} alt="imagen producto" />

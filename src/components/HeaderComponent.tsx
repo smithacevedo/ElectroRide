@@ -5,8 +5,8 @@ export default function HeaderComponent(){
 
     const images = [
     "/img/header.jpg",
-    "/img/header2.png",
-    "/img/header3.avif"
+    "/img/header2.jpg",
+    "/img/header3.jpg",
     ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

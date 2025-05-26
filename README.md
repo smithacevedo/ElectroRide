@@ -9,6 +9,7 @@
 - **Scroll infinito** para cargar más productos automáticamente.
 - Carrito de compras con estado global manejado por `useReducer`.
 - Persistencia del carrito en `localStorage`.
+- Componente para validacion y confirmacion de pagos
 
 ## 🧩 Tecnologías Utilizadas
 
@@ -43,8 +44,9 @@ Los usuarios pueden refinar los productos por:
 - Controlado globalmente mediante `useReducer`.
 - Persistido con `localStorage` para mantener el estado entre sesiones.
 - Se actualiza automáticamente cada vez que el usuario agrega o modifica productos.
-
-## 📁 Estructura del Proyecto
+- Contiene 2 botones:
+- El primero (vaciar carrito) elimina todos los elementos selccionados.
+- El segundo (finalizar compra) redirecciona a un componente para validar los datos del customer y finalizar el pago del producto.
 
 ## 📁 Estructura del Proyecto
 
@@ -72,9 +74,11 @@ ELECTRORIDE/
 │   └── vite.svg
 ├── src/
 │   ├── components/
+│   │   ├── BillingComponent.tsx
 │   │   ├── CardComponent.tsx
 │   │   ├── FilterComponent.tsx
 │   │   ├── HeaderComponent.tsx
+│   │   ├── HomeComponent.tsx
 │   │   ├── NavBarComponent.tsx
 │   │   └── ProductComponent.tsx
 │   ├── db/
